@@ -36,5 +36,5 @@ public enum Operator
     [EnumMember(Value = "$mod")] Modulus,
     [EnumMember(Value = "$size")] Size,
     [EnumMember(Value = "$type")] Type,
-    [EnumMember(Value = "$dateFormat")] ateFormat,
+    [EnumMember(Value = "$dateFormat")] DateFormat,
 }

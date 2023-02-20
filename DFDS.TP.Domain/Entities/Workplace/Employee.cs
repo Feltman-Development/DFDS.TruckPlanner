@@ -2,40 +2,27 @@
 
 namespace DFDS.TP.Domain.Entities.Workplace;
 
-public class TruckDriver : Employee
-{
-    public static TruckDriver HireTruckDriver( string firstName, string lastName, DateOnly dateOfBirth, DateOnly dateOfHire, decimal monthlySalary, int departmentId)
-        => new TruckDriver(dateOfHire, firstName, lastName, dateOfBirth) { MonthlyBaseSalary = monthlySalary, DepartmentId = departmentId, EmployeeId = GetEmployeeId() };
-
-    private TruckDriver(DateOnly dateOfHire, string firstName, string lastName, DateOnly birthday) : base(dateOfHire, firstName, lastName, birthday)
-    {
-    }
-
-    /// <inheritdoc />
-    public override string Title => "Truck Driver";
-
-    /// <inheritdoc />
-    public override string JobDescription => "Drive a truck. Safely and effectively, following the guidance of the Truck Plans";
-}
-
 /// <inheritdoc />
 public abstract class Employee : Person
 {
     /// <inheritdoc />
-    protected Employee(DateOnly dateOfHire, string firstName, string lastName, DateOnly birthday) : base(firstName, lastName, birthday)
+    protected Employee(DateOnly dateOfHire, string firstName, string lastName, DateOnly birthday, string title, string jobDescription, decimal salary) : base(firstName, lastName, birthday)
     {
         DateOfHire = dateOfHire;
+        Title = title;
+        JobDescription = jobDescription;
+        MonthlyBaseSalary = salary;
     }
 
     /// <summary>
     /// Get the employee job title.
     /// </summary>
-    public abstract string Title { get; }  
+    public string Title { get; init; }  
     
     /// <summary>
     /// Get the description of what the job entails.
     /// </summary>
-    public abstract string JobDescription { get; }
+    public string JobDescription { get; init; }
     
     public int EmployeeId { get; set; }
 
@@ -43,7 +30,7 @@ public abstract class Employee : Person
     
     public DateOnly DateOfHire { get; set; }
 
-    public decimal MonthlyBaseSalary { get; set; }
+    public decimal MonthlyBaseSalary { get; init; }
 
     protected static int GetEmployeeId() => HighestAssignedEmployeeId +=1;
 

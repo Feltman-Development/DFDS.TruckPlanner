@@ -29,28 +29,3 @@ public class Department : Entity
     /// </summary>
     public string Description { get; set; }
 }
-
-public abstract class Asset : Entity
-{
-    public Asset(AssetType assetType, string assetName, decimal assetValue)
-    {
-        AssetType = assetType;
-        AssetName = assetName;
-        AssetValue = assetValue;
-    }
-
-    public AssetType AssetType { get; set; }
-
-    public string AssetName { get; set; }
-
-    public decimal AssetValue { get; set; }
-}
-
-public class Truck : Asset
-{
-    public static Truck BuyTruck() => new(AssetType.PropertyPlantEquipment | AssetType.Vehicles, "BlackBetty", 1000000);
-    
-    public Truck(AssetType assetType, string assetName, decimal assetValue) : base(assetType, assetName, assetValue)
-    { }
-
-}
