@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <SqlQueryToolsConnectionString />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="DiConfig\**" />
+    <EmbeddedResource Remove="DiConfig\**" />
+    <None Remove="DiConfig\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Base\DynamicEntity_old.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.DependencyValidation.Analyzers" Version="0.11.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+    <PackageReference Include="System.Collections.Immutable" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ProjectConfig\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DFDS.TP.Core\DFDS.TP.Core.csproj" />
+  </ItemGroup>
+</Project>

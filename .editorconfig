@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# JN03: Not all Properties in a class have a JsonPropertyAttribute (Newtonsoft.Json)
+dotnet_diagnostic.JN03.severity = silent
